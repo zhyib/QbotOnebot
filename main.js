@@ -51,3 +51,5 @@ function inputAccount() {
         inputAccount();
     });
 }
+
+return 0;
