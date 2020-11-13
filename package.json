@@ -4,6 +4,7 @@
   "description": "onebot",
   "main": "main.js",
   "scripts": {
+    "build": "node main 259232161",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

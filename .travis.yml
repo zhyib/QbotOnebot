@@ -4,4 +4,4 @@ node_js:
 install:
   - npm install
 script:
-  - node main 259232161
+  - npm run build
