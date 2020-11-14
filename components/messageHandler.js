@@ -30,14 +30,18 @@
  */
 
 const command = require('./command');
-const linstener = require('./listener')
+const listener = require('./listener')
 
 module.exports = function messageHandler(bot, data) {
     // console.log(data);
-    const message = data.raw_message;
-    if (message[0] === '#') {
-        command(bot, data);
-    } else {
-        linstener(bot, data);
+    try {
+        const message = data.raw_message;
+        if (message[0] === '#') {
+            command(bot, data);
+        } else {
+            listener(bot, data);
+        }
+    } catch (error) {
+        console.error(error);
     }
 }

@@ -25,7 +25,9 @@ let data = {
         title: String
     }
 }
- 
+
+const axios = require('axios');
+
 module.exports = function command(botInst, dataObj) {
     // console.log(data);
     bot = botInst;
@@ -33,7 +35,7 @@ module.exports = function command(botInst, dataObj) {
     const command = data.raw_message.split(' ')[0];
     if (handlers.hasOwnProperty(command)) {
         handlers[command]();
-        console.log('Command: ' + key);
+        console.log('Command: ' + command);
     }
 }
 
@@ -41,6 +43,7 @@ const handlers = {
     '#测试': replyTest,
     '#WS语录': replyWsSayings,
     '#ws语录': replyWsSayings,
+    '#epic': replyEpic,
 }
 
 const wsSayings = [
@@ -84,4 +87,35 @@ function replyWsSayings() {
             bot.sendGroupMsg(data.group_id, '参数错误');
         }
     }
+}
+
+function replyEpic() {
+    axios.get('https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=zh-CN')
+    .then(function (response) {
+        const res = response.data;
+        const games = res.data.Catalog.searchStore.elements;
+        let ret = '';
+        for (const game of games) {
+            ret += (
+                '[CQ:image,file=' + game.keyImages[0].url + ']\n' + 
+                '名称 ' + game.title + '\n' +
+                '时间 ' + formateDate(game.effectiveDate) + '\n' +
+                '=========='
+            );
+        }
+        bot.sendGroupMsg(data.group_id, ret);
+      })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+//转换时间格式
+function formateDate(datetime) {
+    function addDateZero(num) {
+        return (num < 10 ? "0" + num : num);
+    }
+    let d = new Date(datetime);
+    let formatdatetime = d.getFullYear() + '-' + addDateZero(d.getMonth() + 1) + '-' + addDateZero(d.getDate()) + ' ' + addDateZero(d.getHours()) + ':' + addDateZero(d.getMinutes()) + ':' + addDateZero(d.getSeconds());
+    return formatdatetime;
 }
