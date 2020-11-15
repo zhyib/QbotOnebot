@@ -41,15 +41,19 @@ module.exports = function linstener(botInst, dataObj) {
 }
 
 const imagePair = {
-    'WZAJY': 'WZAJY.gif',
+    'WZAJY': ['WZAJY.gif'],
+    '好！': ['hao(0).jpg', 'hao(1).jpg', 'hao(2).jpg', 'hao(3).jpg'],
+    '上班': ['shangban(0).jpg', 'shangban(1).jpg', 'shangban(2).jpg'],
+    '下班': ['xiaban(0).jpg', 'xiaban(1).jpg'],
 }
 
 function imagePairFunc() {
     const message = data.raw_message;
     for (const key in imagePair) {
-        if (message === key) {
+        if (message.includes(key)) {
             const reply = imagePair[key];
-            bot.sendGroupMsg(data.group_id, `[CQ:image,file=./data/local/${reply}]`);
+            const rand = Math.floor(Math.random() * reply.length);
+            bot.sendGroupMsg(data.group_id, `[CQ:image,file=./data/local/${reply[rand]}]`);
             console.log('Linster | Image Pair: ' + key);
             return true;
         }
@@ -83,7 +87,7 @@ function wordsPairFunc() {
 
 const wholePair = {
     "测试": ["ACK"],
-    "输了": ["输了", "输的透彻"],
+    "输了": ["输了", "输的透彻",'大失败'],
     "我是傻逼": ["你是傻逼"],
     "我懂了": ["我也懂了", "你又懂了？"],
 };
