@@ -45,7 +45,6 @@ const imagePair = {
     '好！': ['hao(0).jpg', 'hao(1).jpg', 'hao(2).jpg', 'hao(3).jpg'],
     '上班': ['shangban(0).jpg', 'shangban(1).jpg', 'shangban(2).jpg'],
     '下班': ['xiaban(0).jpg', 'xiaban(1).jpg'],
-    'EE': ['EE.jpg'],
     '饿了': ['EE.jpg'],
 }
 
