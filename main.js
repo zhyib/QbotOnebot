@@ -38,6 +38,13 @@ try {
     process.exit(0);
 }
 
+/*
+ * custom part
+ */
+
+// const timer = require('./components/time.js').timer;
+// timer();
+
 let account = parseInt(process.argv[2]);
 inputAccount();
 

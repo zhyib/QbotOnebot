@@ -52,7 +52,7 @@ function formateDate(datetime) {
   }
   const d = new Date(datetime);
   const formatdatetime = `${d.getFullYear()}-${addDateZero(d.getMonth() + 1)}-${addDateZero(d.getDate())} ${addDateZero(d.getHours())}:${addDateZero(d.getMinutes())}:${addDateZero(d.getSeconds())}`;
-  return formatdatetime;
+  return d.toString().split(' ').slice(0, 4).join(' ');
 }
 
 function replyEpic() {
