@@ -22,7 +22,7 @@ async function getPics(bot, data) {
   // console.log(title);
   // console.log(noscript.length);
   // console.log(picUrls);
-  let ret = `${title}\n`;
+  let ret = `${title}\n${innerUrl}\n`;
   picUrls.forEach((item) => {
     ret += (
       `[CQ:image,file=${item}]\n`

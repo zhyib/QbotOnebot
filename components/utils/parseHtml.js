@@ -10,7 +10,27 @@ async function getFromUrl(url) {
     .catch((error) => {
       console.log(error);
     });
-  const parser = new DOMParser();
+  const parser = new DOMParser({
+    /**
+     * locator is always need for error position info
+     */
+    locator: {},
+    /**
+     * you can override the errorHandler for xml parser
+     * @link http://www.saxproject.org/apidoc/org/xml/sax/ErrorHandler.html
+     */
+    errorHandler: {
+      warning() {
+      },
+      error() {
+      },
+      fatalError(e) {
+        console.error(e);
+      },
+    },
+    // only callback model
+    // errorHandler:function(level,msg){console.log(level,msg)}
+  });
   const dom = parser.parseFromString(res, 'text/html');
   return dom;
 }
