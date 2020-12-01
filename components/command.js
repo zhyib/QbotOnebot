@@ -2,6 +2,7 @@ const { replyTest } = require('./commands/replyTest');
 const { replyWsSayings } = require('./commands/replyWsSayings');
 const { replyEpic } = require('./commands/replyEpic');
 const { replyEroPic } = require('./commands/replyEroPic');
+const { replyStatus } = require('./commands/replyStatus');
 
 const handlers = {
   '#测试': replyTest,
@@ -10,6 +11,7 @@ const handlers = {
   '#epic': replyEpic,
   '#涩图': replyEroPic,
   '#色图': replyEroPic,
+  '#status': replyStatus,
 };
 
 module.exports = function command(bot, data) {
