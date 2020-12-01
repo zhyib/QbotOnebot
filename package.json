@@ -19,8 +19,9 @@
   "homepage": "https://github.com/takayama-lily/onebot#readme",
   "dependencies": {
     "axios": "^0.21.0",
-    "oicq": "^1.10.13",
-    "ws": "^7.3.1"
+    "oicq": "^1.11.0",
+    "ws": "^7.3.1",
+    "xmldom": "^0.4.0"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
