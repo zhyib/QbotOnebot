@@ -9,8 +9,8 @@ module.exports = {
     //通用配置
     general: {
         platform:           2,      //1手机 2平板 3手表(部分事件不支持)
-        kickoff:            false,  //被挤下线是否在3秒后反挤对方
-        ignore_self:        true,   //群聊是否无视自己的发言
+        ignore_self:        true,   //群聊和私聊是否无视自己的发言
+        resend:             true,   //被风控的消息是否尝试以另一种方式再次发送(目前不清楚会有什么弊端，但是确实有效)
         debug:              false,  //开启debug
         use_cqhttp_notice:  false,  //是否使用cqhttp标准的notice事件格式
 
@@ -25,7 +25,7 @@ module.exports = {
         enable_heartbeat:   false,      //是否启用ws心跳
         heartbeat_interval: 15000,      //ws心跳间隔
         rate_limit_interval:500,        //使用_rate_limited后缀限速调用api的排队间隔时间(毫秒)
-        event_filter:       "",         //事件过滤器
+        event_filter:       "",         //json格式的事件过滤器文件路径
         post_url: [
             // "http://your.address.com:80", //上报地址，可以添加多个url
         ],
