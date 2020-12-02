@@ -1,4 +1,4 @@
-const { getFromUrl } = require('../utils/parseHtml');
+const getFromUrl = require('../utils/parseHtml');
 
 async function getPics(bot, data) {
   // get dom from origin page

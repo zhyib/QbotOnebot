@@ -35,6 +35,4 @@ async function getFromUrl(url) {
   return dom;
 }
 
-module.exports = {
-  getFromUrl,
-};
+module.exports = getFromUrl;
