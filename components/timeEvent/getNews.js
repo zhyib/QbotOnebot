@@ -31,18 +31,18 @@ async function getNews(bot, now) {
   for (let i = 11; i < 16; i++) {
     ret3 += `${texts[i].childNodes.toString()}\n`;
   }
-  for (let i = 16; i < texts.length; i++) {
+  for (let i = 16; i < texts.length - 1; i++) {
     ret4 += `${texts[i].childNodes.toString()}\n`;
   }
-  // console.log(ret0);
-  // await sleep(1500);
-  // console.log(ret1);
-  // await sleep(1500);
-  // console.log(ret2);
-  // await sleep(1500);
-  // console.log(ret3);
-  // await sleep(1500);
-  // console.log(ret4);
+  console.log(ret0);
+  await sleep(1500);
+  console.log(ret1);
+  await sleep(1500);
+  console.log(ret2);
+  await sleep(1500);
+  console.log(ret3);
+  await sleep(1500);
+  console.log(ret4);
 
   // bot.sendGroupMsg(166795834, ret0);
   // await sleep(1500);
