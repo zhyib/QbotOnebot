@@ -3,56 +3,60 @@ const sleep = require('../utils/sleep');
 
 async function getNews(bot, now) {
   console.log(now);
+  try {
+    // get dom from origin page
+    const dom = await getFromUrl('https://www.zhihu.com/people/mt36501');
 
-  // get dom from origin page
-  const dom = await getFromUrl('https://www.zhihu.com/people/mt36501');
+    // select one and get inner url
+    const innerUrl = dom.getElementsByClassName('List-item')[0].getElementsByTagName('a')[0].getAttribute('href');
+    // console.log(innerUrl);
 
-  // select one and get inner url
-  const innerUrl = dom.getElementsByClassName('List-item')[0].getElementsByTagName('a')[0].getAttribute('href');
-  // console.log(innerUrl);
+    // get dom from inner page
+    const innerDom = await getFromUrl(`https:${innerUrl}`).catch(() => {});
+    const imgUrl = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('img')[0].getAttribute('src');
+    // console.log(imgUrl);
+    const texts = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('p');
 
-  // get dom from inner page
-  const innerDom = await getFromUrl(`https:${innerUrl}`).catch(() => {});
-  const imgUrl = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('img')[0].getAttribute('src');
-  // console.log(imgUrl);
-  const texts = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('p');
+    const ret0 = `[CQ:image,file=${imgUrl}]\n`;
+    let ret1 = '';
+    let ret2 = '';
+    let ret3 = '';
+    let ret4 = '';
+    for (let i = 1; i < 6; i++) {
+      ret1 += `${texts[i].childNodes.toString()}\n`;
+    }
+    for (let i = 6; i < 11; i++) {
+      ret2 += `${texts[i].childNodes.toString()}\n`;
+    }
+    for (let i = 11; i < 16; i++) {
+      ret3 += `${texts[i].childNodes.toString()}\n`;
+    }
+    for (let i = 16; i < texts.length - 1; i++) {
+      ret4 += `${texts[i].childNodes.toString()}\n`;
+    }
+    console.log(ret0);
+    await sleep(1500);
+    console.log(ret1);
+    await sleep(1500);
+    console.log(ret2);
+    await sleep(1500);
+    console.log(ret3);
+    await sleep(1500);
+    console.log(ret4);
 
-  const ret0 = `[CQ:image,file=${imgUrl}]\n`;
-  let ret1 = '';
-  let ret2 = '';
-  let ret3 = '';
-  let ret4 = '';
-  for (let i = 1; i < 6; i++) {
-    ret1 += `${texts[i].childNodes.toString()}\n`;
+    // bot.sendGroupMsg(166795834, ret0);
+    // await sleep(1500);
+    bot.sendGroupMsg(166795834, ret1);
+    await sleep(2500);
+    bot.sendGroupMsg(166795834, ret2);
+    await sleep(2500);
+    bot.sendGroupMsg(166795834, ret3);
+    await sleep(2500);
+    bot.sendGroupMsg(166795834, ret4);
+  } catch (error) {
+    console.log(error);
+    throw new Error('Error: News');
   }
-  for (let i = 6; i < 11; i++) {
-    ret2 += `${texts[i].childNodes.toString()}\n`;
-  }
-  for (let i = 11; i < 16; i++) {
-    ret3 += `${texts[i].childNodes.toString()}\n`;
-  }
-  for (let i = 16; i < texts.length - 1; i++) {
-    ret4 += `${texts[i].childNodes.toString()}\n`;
-  }
-  console.log(ret0);
-  await sleep(1500);
-  console.log(ret1);
-  await sleep(1500);
-  console.log(ret2);
-  await sleep(1500);
-  console.log(ret3);
-  await sleep(1500);
-  console.log(ret4);
-
-  // bot.sendGroupMsg(166795834, ret0);
-  // await sleep(1500);
-  bot.sendGroupMsg(166795834, ret1);
-  await sleep(2500);
-  bot.sendGroupMsg(166795834, ret2);
-  await sleep(2500);
-  bot.sendGroupMsg(166795834, ret3);
-  await sleep(2500);
-  bot.sendGroupMsg(166795834, ret4);
 }
 
 module.exports = {
