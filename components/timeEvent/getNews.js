@@ -1,7 +1,7 @@
 const getFromUrl = require('../utils/parseHtml');
 const sleep = require('../utils/sleep');
 
-async function getNews(bot, now) {
+module.exports = async function getNews(bot, now) {
   console.log(now);
   try {
     // get dom from origin page
@@ -55,10 +55,6 @@ async function getNews(bot, now) {
     bot.sendGroupMsg(166795834, ret4);
   } catch (error) {
     console.log(error);
-    throw new Error('Error: News');
+    throw error;
   }
-}
-
-module.exports = {
-  getNews,
 };
