@@ -18,8 +18,8 @@ function replyEpic(bot, data) {
         const game = games[i];
         const d = new Date(game.effectiveDate);
         ret += (
-          `[CQ:image,file=${game.keyImages[0].url}]\n`
-                  + `名称 ${game.title}\n`
+          // `[CQ:image,file=${game.keyImages[0].url}]\n`
+          `名称 ${game.title}\n`
                   + `时间 ${d.toString().split(' ').slice(0, 4).join(' ')}\n`
                   + '=========='
         );
