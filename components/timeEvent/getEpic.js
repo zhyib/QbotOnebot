@@ -1,4 +1,5 @@
 const axios = require('axios');
+const parseDate = require('../utils/parseDate');
 
 function replyEpic(bot, data) {
   bot.sendGroupMsg(166795834, '正在获取Epic商店信息');
@@ -9,12 +10,25 @@ function replyEpic(bot, data) {
       let ret = '';
       for (let i = 0; i < games.length; i++) {
         const game = games[i];
-        const d = new Date(game.effectiveDate);
+        const effectiveDate = new Date(game.effectiveDate);
+        let dates = [];
+        if (game.promotions.upcomingPromotionalOffers[0]) {
+          dates = [
+            new Date(game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate),
+            new Date(game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate),
+          ];
+        } else if (game.promotions.promotionalOffers[0]) {
+          dates = [
+            new Date(game.promotions.promotionalOffers[0].promotionalOffers[0].startDate),
+            new Date(game.promotions.promotionalOffers[0].promotionalOffers[0].endDate),
+          ];
+        }
         ret += (
           // `[CQ:image,file=${game.keyImages[0].url}]\n`
           `名称 ${game.title}\n`
-                  + `时间 ${d.toString().split(' ').slice(0, 4).join(' ')}\n`
-                  + '=========='
+          + `开始 ${parseDate(dates[0])}\n`
+          + `结束 ${parseDate(dates[1])}\n`
+          + '====================\n'
         );
       }
       bot.sendGroupMsg(166795834, ret);

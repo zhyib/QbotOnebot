@@ -1,14 +1,8 @@
 const axios = require('axios');
-
-// function formateDate(datetime) {
-//   function addDateZero(num) {
-//     return (num < 10 ? `0${num}` : num);
-//   }
-//   const d = new Date(datetime);
-//   const formatdatetime = `${d.getFullYear()}-${addDateZero(d.getMonth() + 1)}-${addDateZero(d.getDate())} ${addDateZero(d.getHours())}:${addDateZero(d.getMinutes())}:${addDateZero(d.getSeconds())}`;
-// }
+const parseDate = require('../utils/parseDate');
 
 function replyEpic(bot, data) {
+  bot.sendGroupMsg(166795834, '正在获取Epic商店信息');
   axios.get('https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=zh-CN')
     .then((response) => {
       const res = response.data;
@@ -16,12 +10,25 @@ function replyEpic(bot, data) {
       let ret = '';
       for (let i = 0; i < games.length; i++) {
         const game = games[i];
-        const d = new Date(game.effectiveDate);
+        const effectiveDate = new Date(game.effectiveDate);
+        let dates = [];
+        if (game.promotions.upcomingPromotionalOffers[0]) {
+          dates = [
+            new Date(game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].startDate),
+            new Date(game.promotions.upcomingPromotionalOffers[0].promotionalOffers[0].endDate),
+          ];
+        } else if (game.promotions.promotionalOffers[0]) {
+          dates = [
+            new Date(game.promotions.promotionalOffers[0].promotionalOffers[0].startDate),
+            new Date(game.promotions.promotionalOffers[0].promotionalOffers[0].endDate),
+          ];
+        }
         ret += (
           // `[CQ:image,file=${game.keyImages[0].url}]\n`
           `名称 ${game.title}\n`
-                  + `时间 ${d.toString().split(' ').slice(0, 4).join(' ')}\n`
-                  + '=========='
+          + `开始 ${parseDate(dates[0]).dateTimeString()}\n`
+          + `结束 ${parseDate(dates[1]).dateTimeString()}\n`
+          + '====================\n'
         );
       }
       bot.sendGroupMsg(data.group_id, ret);
