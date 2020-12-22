@@ -2,7 +2,7 @@ const axios = require('axios');
 const parseDate = require('../utils/parseDate');
 
 function replyEpic(bot, data) {
-  bot.sendGroupMsg(166795834, '正在获取Epic商店信息');
+  bot.sendGroupMsg(data.group_id, '正在获取Epic商店信息');
   axios.get('https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=zh-CN')
     .then((response) => {
       const res = response.data;
@@ -23,17 +23,20 @@ function replyEpic(bot, data) {
             new Date(game.promotions.promotionalOffers[0].promotionalOffers[0].endDate),
           ];
         }
-        ret += (
+        if (dates.length > 0) {
+          ret += (
           // `[CQ:image,file=${game.keyImages[0].url}]\n`
-          `名称 ${game.title}\n`
-          + `开始 ${parseDate(dates[0]).dateTimeString()}\n`
-          + `结束 ${parseDate(dates[1]).dateTimeString()}\n`
-          + '====================\n'
-        );
+            `名称 ${game.title}\n`
+            + `开始 ${parseDate(dates[0]).dateTimeString()}\n`
+            + `结束 ${parseDate(dates[1]).dateTimeString()}\n`
+            + '=================\n'
+          );
+        }
       }
       bot.sendGroupMsg(data.group_id, ret);
     })
     .catch((error) => {
+      bot.sendGroupMsg(data.group_id, error.toString());
       console.log(error);
     });
 }

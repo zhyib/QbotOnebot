@@ -23,17 +23,20 @@ function replyEpic(bot, data) {
             new Date(game.promotions.promotionalOffers[0].promotionalOffers[0].endDate),
           ];
         }
-        ret += (
+        if (dates.length > 0) {
+          ret += (
           // `[CQ:image,file=${game.keyImages[0].url}]\n`
-          `名称 ${game.title}\n`
-          + `开始 ${parseDate(dates[0])}\n`
-          + `结束 ${parseDate(dates[1])}\n`
-          + '====================\n'
-        );
+            `名称 ${game.title}\n`
+            + `开始 ${parseDate(dates[0]).dateTimeString()}\n`
+            + `结束 ${parseDate(dates[1]).dateTimeString()}\n`
+            + '=================\n'
+          );
+        }
       }
       bot.sendGroupMsg(166795834, ret);
     })
     .catch((error) => {
+      bot.sendGroupMsg(166795834, error.toString());
       console.log(error);
     });
 }
