@@ -6,15 +6,14 @@ const getLc = require('./timeEvent/getLc');
 let bot = null;
 
 const handlers = {
-  // Fri: {
-  //   '14:00': getEpic,
-  // },
+  Fri: {
+    '14:00': getEpic,
+  },
   Sat: {
     '22:00': getLc,
   },
   'xx:xx': getTest,
   '09:00': getNews,
-  '14:00': getEpic,
 };
 
 function check(now) {
