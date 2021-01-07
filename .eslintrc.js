@@ -16,5 +16,6 @@ module.exports = {
     'no-plusplus': 0,
     'no-restricted-syntax': 1,
     'no-continue': 0,
+    'no-unused-vars': 1,
   },
 };

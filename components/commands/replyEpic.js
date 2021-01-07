@@ -1,5 +1,1 @@
-const replyEpic = require('../module/moduleEpic');
-
-module.exports = {
-  replyEpic,
-};
+module.exports = require('../module/moduleEpic');

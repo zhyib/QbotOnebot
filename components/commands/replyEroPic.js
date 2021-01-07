@@ -1,6 +1,6 @@
 const getFromUrl = require('../utils/parseHtml');
 
-async function getPics(bot, data) {
+module.exports = async function replyEroPic(bot, data) {
   // get dom from origin page
   const dom = await getFromUrl('https://www.haorenka.co/xiaojiejie');
 
@@ -29,8 +29,4 @@ async function getPics(bot, data) {
     );
   });
   bot.sendGroupMsg(data.group_id, ret);
-}
-
-module.exports = {
-  replyEroPic: getPics,
 };

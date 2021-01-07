@@ -12,7 +12,7 @@ const wsSayings = [
   '我这人没啥优点，讲诚信算是其中之一',
 ];
 
-function replyWsSayings(bot, data) {
+module.exports = function replyWsSayings(bot, data) {
   const message = data.raw_message;
   const args = message.split(' ');
   console.log(args);
@@ -34,8 +34,4 @@ function replyWsSayings(bot, data) {
       bot.sendGroupMsg(data.group_id, '参数错误');
     }
   }
-}
-
-module.exports = {
-  replyWsSayings,
 };
