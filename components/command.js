@@ -22,7 +22,7 @@ module.exports = function command(bot, data) {
   const commandBody = data.raw_message.split(' ')[0];
   if (handlers[commandBody] !== undefined) {
     if (commandBody === '#help') {
-      bot.sendGroupMsg(data.group_id, Object.keys.toString);
+      bot.sendGroupMsg(data.group_id, Object.keys.toString());
     } else {
       handlers[commandBody](bot, data);
       console.log(`Command: ${commandBody}`);
