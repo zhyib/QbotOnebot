@@ -6,6 +6,7 @@ const replyStatus = require('./commands/replyStatus');
 const replyRoll = require('./commands/replyRoll');
 
 const handlers = {
+  '#help': null,
   '#测试': replyTest,
   '#WS语录': replyWsSayings,
   '#ws语录': replyWsSayings,
@@ -20,7 +21,11 @@ module.exports = function command(bot, data) {
   // console.log(data);
   const commandBody = data.raw_message.split(' ')[0];
   if (handlers[commandBody] !== undefined) {
-    handlers[commandBody](bot, data);
-    console.log(`Command: ${commandBody}`);
+    if (commandBody === '#help') {
+      bot.sendGroupMsg(data.group_id, Object.keys.toString);
+    } else {
+      handlers[commandBody](bot, data);
+      console.log(`Command: ${commandBody}`);
+    }
   }
 };
