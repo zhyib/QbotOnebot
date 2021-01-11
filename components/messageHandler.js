@@ -12,7 +12,7 @@ function messageHandler(bot, data) {
     }
   } catch (error) {
     console.error(error);
-    bot.sendGroupMsg(data.group_id, `異常発生：${error.toString()}`);
+    bot.sendGroupMsg(data.group_id, `異常発生：\n${error.toString()}`);
   }
 }
 

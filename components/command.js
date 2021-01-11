@@ -4,6 +4,7 @@ const replyEpic = require('./commands/replyEpic');
 const replyEroPic = require('./commands/replyEroPic');
 const replyStatus = require('./commands/replyStatus');
 const replyRoll = require('./commands/replyRoll');
+const replyHistory = require('./commands/replyHistory');
 
 const handlers = {
   '#help': null,
@@ -15,6 +16,7 @@ const handlers = {
   '#色图': replyEroPic,
   '#status': replyStatus,
   '#roll': replyRoll,
+  '#查看消息': replyHistory,
 };
 
 module.exports = function command(bot, data) {

@@ -22,12 +22,20 @@ const messageQueue = (function messageQueue() {
     getCopyTimes() {
       return copyTimes;
     },
+    getString() {
+      let ret = '';
+      for (let i = 0; i < data.length; i++) {
+        ret += `${data[i]}\n`;
+      }
+      return ret;
+    },
+    head() {
+      return data[0];
+    },
     tail() {
       return data[data.length - 1];
     },
   };
 }());
 
-module.exports = {
-  messageQueue,
-};
+module.exports = messageQueue;
