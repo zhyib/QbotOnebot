@@ -1,8 +1,9 @@
 const axios = require('axios');
 const parseDate = require('../utils/parseDate');
 
-function moduleEpic(bot, data) {
-  const groupId = data === undefined ? 166795834 : data.group_id;
+function moduleEpic(bot, dataIn, now) {
+  console.log(now);
+  const groupId = dataIn === undefined ? 166795834 : dataIn.group_id;
   bot.sendGroupMsg(groupId, '正在获取Epic商店信息');
   axios.get('https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=zh-CN')
     .then((response) => {
