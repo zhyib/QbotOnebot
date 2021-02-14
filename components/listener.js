@@ -108,7 +108,7 @@ function targetFunc() {
   const message = data.raw_message;
   const head = message[0];
   const follows = message.slice(1);
-  if (singleTarget.includes(follows)) {
+  if (singleTarget.includes(follows) && Object.keys(singleWord).includes(head)) {
     const replies = singleWord[head];
     const rand = Math.floor(Math.random() * replies.length);
     bot.sendGroupMsg(data.group_id, `${follows}${replies[rand]}`);
