@@ -17,25 +17,25 @@ module.exports = async function getNews(bot, now) {
     // console.log(imgUrl);
     const texts = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('p');
 
-    const ret0 = `[CQ:image,file=${imgUrl}]\n`;
+    // const ret0 = `[CQ:image,file=${imgUrl}]\n`;
     let ret1 = '';
     let ret2 = '';
     let ret3 = '';
     let ret4 = '';
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 3; i++) {
       ret1 += `${texts[i].childNodes.toString()}\n`;
     }
-    for (let i = 6; i < 11; i++) {
+    for (let i = 3; i < 8; i++) {
       ret2 += `${texts[i].childNodes.toString()}\n`;
     }
-    for (let i = 11; i < 16; i++) {
+    for (let i = 8; i < 13; i++) {
       ret3 += `${texts[i].childNodes.toString()}\n`;
     }
-    for (let i = 16; i < texts.length - 1; i++) {
+    for (let i = 13; i < texts.length - 1; i++) {
       ret4 += `${texts[i].childNodes.toString()}\n`;
     }
-    console.log(ret0);
-    await sleep(1500);
+    // console.log(ret0);
+    // await sleep(1500);
     console.log(ret1);
     await sleep(1500);
     console.log(ret2);

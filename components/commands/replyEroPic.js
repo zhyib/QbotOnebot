@@ -1,7 +1,7 @@
 const getFromUrl = require('../utils/parseHtml');
 
 module.exports = async function replyEroPic(bot, data) {
-  bot.sendGroupMsg(data.group_id, '获取URL...');
+  bot.sendGroupMsg(data.group_id, '正在获取URL...');
 
   // get dom from origin page
   const dom = await getFromUrl('https://www.haorenka.co/xiaojiejie');
@@ -15,7 +15,7 @@ module.exports = async function replyEroPic(bot, data) {
   const innerDom = await getFromUrl(innerUrl);
   const noscript = innerDom.getElementsByTagName('noscript');
 
-  bot.sendGroupMsg(data.group_id, '解析网页内容...');
+  bot.sendGroupMsg(data.group_id, '正在解析网页内容...');
 
   // get data
   const title = innerDom.getElementsByTagName('title')[0].childNodes[0].nodeValue;
