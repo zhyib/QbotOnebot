@@ -13,7 +13,7 @@ module.exports = async function getNews(bot, now) {
 
     // get dom from inner page
     const innerDom = await getFromUrl(`https:${innerUrl}`).catch(() => {});
-    const imgUrl = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('img')[0].getAttribute('src');
+    // const imgUrl = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('img')[0].getAttribute('src');
     // console.log(imgUrl);
     const texts = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('p');
 
@@ -55,6 +55,6 @@ module.exports = async function getNews(bot, now) {
     bot.sendGroupMsg(166795834, ret4);
   } catch (error) {
     console.log(error);
-    throw error;
+    // throw error;
   }
 };

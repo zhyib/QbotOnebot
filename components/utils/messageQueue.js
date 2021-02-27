@@ -22,10 +22,16 @@ const messageQueue = (function messageQueue() {
     getCopyTimes() {
       return copyTimes;
     },
-    getString() {
+    getString(num) {
       let ret = '';
-      for (let i = 0; i < data.length; i++) {
-        ret += `${data[i]}\n`;
+      if (num === undefined) {
+        for (let i = 0; i < data.length; i++) {
+          ret += `${data[i]}\n`;
+        }
+      } else {
+        for (let i = data.length - num; i < data.length; i++) {
+          ret += `${data[i]}\n`;
+        }
       }
       return ret;
     },
