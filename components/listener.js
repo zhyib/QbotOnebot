@@ -131,11 +131,17 @@ function copyAllFunc() {
 module.exports = function linstener(botIn, dataIn) {
   bot = botIn;
   data = dataIn;
-  messageQueue.add(data.raw_message);
+  const rawMessage = data.raw_message;
+  if (rawMessage.includes('[CQ:reply')) {
+    const arr = rawMessage.split(' ');
+    messageQueue.add(arr[arr.length - 1]);
+    return false;
+  }
+  messageQueue.add(rawMessage);
   return (imagePairFunc()
-       || wordsPairFunc()
-       || wholePairFunc()
-       || copyKeywordFunc()
-       || targetFunc()
-       || copyAllFunc());
+        || wordsPairFunc()
+        || wholePairFunc()
+        || copyKeywordFunc()
+        || targetFunc()
+        || copyAllFunc());
 };
