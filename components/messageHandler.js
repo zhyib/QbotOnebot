@@ -3,7 +3,7 @@ const listener = require('./listener');
 
 let online = true;
 
-function messageHandler(bot, data) {
+module.exports = function messageHandler(bot, data) {
   // console.log(data);
   try {
     const message = data.raw_message;
@@ -36,8 +36,4 @@ function messageHandler(bot, data) {
     console.error(error);
     bot.sendGroupMsg(data.group_id, `異常発生：\n${error.toString()}`);
   }
-}
-
-module.exports = {
-  messageHandler,
 };

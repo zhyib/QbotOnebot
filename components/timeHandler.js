@@ -55,11 +55,7 @@ function timer() {
   }, 60000);
 }
 
-function timeHandler(botIn) {
+module.exports = function timeHandler(botIn) {
   bot = botIn;
   timer();
-}
-
-module.exports = {
-  timeHandler,
 };
