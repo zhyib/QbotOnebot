@@ -20,9 +20,9 @@
   "dependencies": {
     "axios": ">=0.21.1",
     "canvas": "^2.7.0",
-    "oicq": "^1.11.3",
+    "oicq": "^1.15.1",
     "ws": "^7.3.1",
-    "xmldom": "^0.4.0"
+    "xmldom": ">=0.5.0"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
