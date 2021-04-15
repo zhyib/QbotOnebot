@@ -1,22 +1,23 @@
-const Canvas = require('canvas');
+// const Canvas = require('canvas');
 const fs = require('fs');
 
 const paint = {
   paintRect(color) {
-    const canvas = Canvas.createCanvas(150, 150);
-    const ctx = canvas.getContext('2d');
+    console.log('DEPRECATED PART');
+    // const canvas = Canvas.createCanvas(150, 150);
+    // const ctx = canvas.getContext('2d');
 
-    const out = fs.createWriteStream(`${__dirname}/image.png`);
-    const stream = canvas.createPNGStream();
+    // const out = fs.createWriteStream(`${__dirname}/image.png`);
+    // const stream = canvas.createPNGStream();
 
-    stream.on('data', (chunk) => {
-      out.write(chunk);
-    });
+    // stream.on('data', (chunk) => {
+    //   out.write(chunk);
+    // });
 
-    // 在左边画正方形
-    ctx.fillStyle = color;
-    ctx.fillRect(0, 0, 150, 150);
-    ctx.save();
+    // // 在左边画正方形
+    // ctx.fillStyle = color;
+    // ctx.fillRect(0, 0, 150, 150);
+    // ctx.save();
 
     // // 在右边画正方形
     // ctx.fillStyle = '#aaa';
