@@ -1,5 +1,8 @@
 const axios = require('axios');
 
+// 直接用 axios 拿的 json
+// 使用 then 解析
+
 module.exports = async function replyLc(bot, dataIn, now) {
   console.log(now);
   const groupId = dataIn === undefined ? 166795834 : dataIn.group_id;

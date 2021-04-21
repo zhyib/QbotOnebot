@@ -6,7 +6,7 @@ const replyStatus = require('./commands/replyStatus');
 const replyRoll = require('./commands/replyRoll');
 const replyHistory = require('./commands/replyHistory');
 const replyLc = require('./commands/replyLc');
-const replyRect = require('./commands/replyRect');
+const replyDaily = require('./commands/replyDaily');
 
 const handlers = {
   '#help': null,
@@ -20,7 +20,7 @@ const handlers = {
   '#roll': replyRoll,
   '#查看消息': replyHistory,
   '#LC': replyLc,
-  '#rect': replyRect,
+  '#每日': replyDaily,
 };
 
 module.exports = function command(bot, data) {

@@ -2,6 +2,7 @@ const getTest = require('./timeEvent/getTest');
 const getNews = require('./timeEvent/getNews');
 const getEpic = require('./timeEvent/getEpic');
 const getLc = require('./timeEvent/getLc');
+const getDaily = require('./timeEvent/getDaily');
 
 let bot = null;
 
@@ -14,6 +15,7 @@ const handlers = {
   },
   'xx:xx': getTest,
   '09:00': getNews,
+  '10:00': getDaily,
 };
 
 function check(now) {
