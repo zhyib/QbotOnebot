@@ -1,12 +1,12 @@
-const replyTest = require('./commands/replyTest');
-const replyWsSayings = require('./commands/replyWsSayings');
-const replyEpic = require('./commands/replyEpic');
-const replyEroPic = require('./commands/replyEroPic');
-const replyStatus = require('./commands/replyStatus');
-const replyRoll = require('./commands/replyRoll');
-const replyHistory = require('./commands/replyHistory');
-const replyLc = require('./commands/replyLc');
-const replyDaily = require('./commands/replyDaily');
+const replyTest = require('@commands/replyTest');
+const replyWsSayings = require('@commands/replyWsSayings');
+const replyEpic = require('@commands/replyEpic');
+const replyEroPic = require('@commands/replyEroPic');
+const replyStatus = require('@commands/replyStatus');
+const replyRoll = require('@commands/replyRoll');
+const replyHistory = require('@commands/replyHistory');
+const replyLc = require('@commands/replyLc');
+const replyDaily = require('@commands/replyDaily');
 
 const handlers = {
   '#help': null,

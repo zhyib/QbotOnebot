@@ -1,1 +1,1 @@
-module.exports = require('../module/moduleLc');
+module.exports = require('@module/moduleLc');

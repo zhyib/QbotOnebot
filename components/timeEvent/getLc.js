@@ -1,4 +1,4 @@
-const replyLc = require('../module/moduleLc');
+const replyLc = require('@module/moduleLc');
 
 module.exports = function getLc(bot, now) {
   replyLc(bot, undefined, now);

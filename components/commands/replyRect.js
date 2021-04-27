@@ -1,4 +1,4 @@
-const paint = require('../utils/paint');
+const paint = require('@utils/paint');
 
 module.exports = function replyRect(bot, data) {
   const message = data.raw_message;

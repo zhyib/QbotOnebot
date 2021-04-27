@@ -1,1 +1,1 @@
-module.exports = require('../module/moduleEpic');
+module.exports = require('@module/moduleEpic');

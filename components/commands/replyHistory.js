@@ -1,4 +1,4 @@
-const messageQueue = require('../utils/messageQueue');
+const messageQueue = require('@utils/messageQueue');
 
 module.exports = function replyRoll(bot, data) {
   const message = data.raw_message;

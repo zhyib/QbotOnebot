@@ -17,5 +17,6 @@ module.exports = {
     'no-restricted-syntax': 1,
     'no-continue': 0,
     'no-unused-vars': 1,
+    'import/no-unresolved': 0,
   },
 };

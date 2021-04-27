@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./components",
+    "paths": {
+      "@commands/*": ["./commands/*"],
+      "@module/*": ["./commands/*"],
+      "@timeEvent/*": ["./commands/*"],
+      "@utils/*": ["./utils/*"],
+    }
+  }
+}

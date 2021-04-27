@@ -1,6 +1,6 @@
 {
   "name": "node-onebot",
-  "version": "1.1.2",
+  "version": "1.0.0",
   "description": "onebot",
   "main": "main.js",
   "scripts": {
@@ -9,16 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takayama-lily/onebot.git"
+    "url": "git+https://github.com/zhyib/QbotOnebot.git"
   },
-  "author": "takayama",
+  "author": "AkiraZ",
   "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/takayama-lily/onebot/issues"
-  },
   "homepage": "https://github.com/takayama-lily/onebot#readme",
   "dependencies": {
     "axios": ">=0.21.1",
+    "module-alias": "^2.2.2",
     "oicq": "^1.15.1",
     "ws": "^7.3.1",
     "xmldom": ">=0.5.0"
@@ -27,5 +25,12 @@
     "eslint": "^7.14.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@commands": "components/commands",
+    "@module": "components/module",
+    "@timeEvent": "components/timeEvent",
+    "@utils": "components/utils"
   }
 }

@@ -1,5 +1,5 @@
-const getFromUrl = require('../utils/parseHtml');
-const sleep = require('../utils/sleep');
+const getFromUrl = require('@utils/parseHtml');
+const sleep = require('@utils/sleep');
 
 module.exports = async function getNews(bot, now) {
   console.log(now);

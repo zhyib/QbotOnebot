@@ -1,5 +1,5 @@
 const axios = require('axios');
-const parseDate = require('../utils/parseDate');
+const parseDate = require('@utils/parseDate');
 
 // 直接用 axios 拿的 json
 // 使用 then 解析

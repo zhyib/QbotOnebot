@@ -1,4 +1,4 @@
-const getFromUrl = require('../utils/parseHtml');
+const getFromUrl = require('@utils/parseHtml');
 
 module.exports = async function replyEroPic(bot, data) {
   bot.sendGroupMsg(data.group_id, '正在获取URL...');
