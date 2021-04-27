@@ -19,7 +19,7 @@ module.exports = async function getDaily(bot, dataIn, now) {
         questionTitle,
         questionTitleSlug,
         topicTags {
-           name
+          name
         },
         codeSnippets {
           lang,
