@@ -1,5 +1,6 @@
 const command = require('@components/command');
 const listener = require('@components/listener');
+const ErrorUtil = require('@utils/Error');
 
 let online = true;
 
@@ -30,9 +31,8 @@ module.exports = function messageHandler(bot, data) {
           listener(bot, data);
         }
       }
-    } catch (error) {
-      console.error(error);
-      bot.sendPrivateMsg(ADMIN, `異常発生：\n${error.toString()}`);
+    } catch (e) {
+      new ErrorUtil(e, bot).reportAdmin();
     }
   }
 };

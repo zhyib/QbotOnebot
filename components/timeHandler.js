@@ -1,3 +1,4 @@
+const ErrorUtil = require('@utils/Error');
 const getTest = require('@timeEvent/getTest');
 const getNews = require('@timeEvent/getNews');
 const getEpic = require('@timeEvent/getEpic');
@@ -42,9 +43,8 @@ function check(now) {
         console.log(`Time: ${day} ${HHmm}`);
       }
     }
-  } catch (error) {
-    console.error(error);
-    bot.sendGroupMsg(166795834, `異常発生：${error.toString()}`);
+  } catch (e) {
+    new ErrorUtil((e, bot)).reportGroup();
   }
 }
 

@@ -1,4 +1,5 @@
 const axios = require('axios');
+const ErrorUtil = require('@utils/Error');
 
 // 发请求
 
@@ -53,7 +54,7 @@ module.exports = async function getDaily(bot, dataIn, now) {
       // console.log(ret);
       bot.sendGroupMsg(groupId, ret);
     })
-    .catch((error) => {
-      console.log(error);
+    .catch((e) => {
+      new ErrorUtil((e, bot)).reportGroup();
     });
 };

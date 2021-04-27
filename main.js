@@ -1,5 +1,4 @@
 "use strict";
-require('module-alias/register');
 
 const ver = process.version.substr(1).split(".");
 if (ver[0] < 12 || (ver[0] == 12 && ver[1] < 16)) {
@@ -26,7 +25,6 @@ try {
     console.log(`"npm up --no-save"执行失败，你可能需要手动执行。`);
 }
 
-require("oicq");
 const data_dir = path.join(process.mainModule.path, "data");
 try {
     if (!fs.existsSync(data_dir))
@@ -41,11 +39,18 @@ try {
 }
 
 /*
- * custom part
+ * custom part starts
  */
+
+require('module-alias/register');
+require("oicq");
 
 // const timer = require('./components/time.js').timer;
 // timer();
+
+/*
+ * custom part ends
+ */
 
 let account = parseInt(process.argv[2]);
 inputAccount();

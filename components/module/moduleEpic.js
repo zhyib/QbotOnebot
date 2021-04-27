@@ -1,5 +1,6 @@
 const axios = require('axios');
 const parseDate = require('@utils/parseDate');
+const ErrorUtil = require('@utils/Error');
 
 // 直接用 axios 拿的 json
 // 使用 then 解析
@@ -41,9 +42,8 @@ function moduleEpic(bot, dataIn, now) {
       }
       bot.sendGroupMsg(groupId, ret);
     })
-    .catch((error) => {
-      bot.sendGroupMsg(groupId, error.toString());
-      console.log(error);
+    .catch((e) => {
+      new ErrorUtil(e, bot).reportGroup(groupId);
     });
 }
 

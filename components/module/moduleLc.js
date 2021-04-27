@@ -1,4 +1,5 @@
 const axios = require('axios');
+const ErrorUtil = require('@utils/Error');
 
 // 直接用 axios 拿的 json
 // 使用 then 解析
@@ -25,7 +26,7 @@ module.exports = async function replyLc(bot, dataIn, now) {
       //   console.log(ret);
       bot.sendGroupMsg(groupId, ret);
     })
-    .catch((error) => {
-      console.log(error);
+    .catch((e) => {
+      new ErrorUtil(e, bot).reportGroup(groupId);
     });
 };

@@ -1,5 +1,6 @@
 const getFromUrl = require('@utils/parseHtml');
 const sleep = require('@utils/sleep');
+const ErrorUtil = require('@utils/Error');
 
 module.exports = async function getNews(bot, now) {
   console.log(now);
@@ -53,8 +54,7 @@ module.exports = async function getNews(bot, now) {
     bot.sendGroupMsg(166795834, ret3);
     await sleep(2500);
     bot.sendGroupMsg(166795834, ret4);
-  } catch (error) {
-    console.log(error);
-    // throw error;
+  } catch (e) {
+    new ErrorUtil(e, bot).reportGroup();
   }
 };
