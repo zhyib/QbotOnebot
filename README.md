@@ -1,4 +1,4 @@
-# Another Qbot based onebot
+# Another Qbot based on node-onebot
 
 [![core](https://img.shields.io/badge/core-oicq-brightgreen)](https://www.npmjs.com/package/oicq)
 [![node engine](https://img.shields.io/node/v/oicq.svg)](https://nodejs.org)
