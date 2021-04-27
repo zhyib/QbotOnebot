@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./components",
     "paths": {
+      "@components/*": ["./components/*"],
       "@commands/*": ["./commands/*"],
       "@module/*": ["./commands/*"],
       "@timeEvent/*": ["./commands/*"],

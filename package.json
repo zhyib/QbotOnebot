@@ -27,7 +27,8 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "_moduleAliases": {
-    "@root": ".",
+    "@": ".",
+    "@components": "components",
     "@commands": "components/commands",
     "@module": "components/module",
     "@timeEvent": "components/timeEvent",

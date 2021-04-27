@@ -1,5 +1,5 @@
-const command = require('./command');
-const listener = require('./listener');
+const command = require('@components/command');
+const listener = require('@components/listener');
 
 let online = true;
 

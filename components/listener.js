@@ -1,6 +1,6 @@
 let data;
 let bot;
-const messageQueue = require('./utils/messageQueue');
+const messageQueue = require('@utils/messageQueue');
 
 const imagePair = {
   WZAJY: ['WZAJY.gif'],
