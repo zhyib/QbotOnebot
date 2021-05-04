@@ -1,6 +1,8 @@
+const messageQueue = require('@utils/messageQueue');
+const sleep = require('@utils/sleep.js');
+
 let data;
 let bot;
-const messageQueue = require('@utils/messageQueue');
 
 const imagePair = {
   WZAJY: ['WZAJY.gif'],
@@ -118,6 +120,7 @@ function targetFunc() {
   return false;
 }
 
+// 全句拷贝
 function copyAllFunc() {
   if (messageQueue.getCopyTimes() === 2) {
     const reply = messageQueue.tail();
@@ -133,11 +136,13 @@ module.exports = function linstener(botIn, dataIn) {
   data = dataIn;
   const rawMessage = data.raw_message;
   if (rawMessage.includes('[CQ:reply')) {
+    // ignore all the 'CQ:reply' status
     const arr = rawMessage.split(' ');
     messageQueue.add(arr[arr.length - 1]);
     return false;
   }
   messageQueue.add(rawMessage);
+  sleep(1500);
   return (imagePairFunc()
         || wordsPairFunc()
         || wholePairFunc()
