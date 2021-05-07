@@ -1,6 +1,8 @@
 const messageQueue = require('@utils/messageQueue');
 const sleep = require('@utils/sleep.js');
 
+const PROB = 0.3;
+
 let data;
 let bot;
 
@@ -143,11 +145,14 @@ module.exports = function linstener(botIn, dataIn) {
     return false;
   }
   messageQueue.add(rawMessage);
-  sleep(1500);
-  return (imagePairFunc()
-        || wordsPairFunc()
-        || wholePairFunc()
-        || copyKeywordFunc()
-        || targetFunc()
-        || copyAllFunc());
+  sleep(3000);
+  if (Math.random() < PROB) {
+    return (imagePairFunc()
+          || wordsPairFunc()
+          || wholePairFunc()
+          || copyKeywordFunc()
+          || targetFunc()
+          || copyAllFunc());
+  }
+  return false;
 };
