@@ -8,12 +8,12 @@ class ErrorUtil {
 
   reportAdmin() {
     console.error(this.error);
-    this.bot.sendPrivateMsg(this.ADMIN, `異常発生：${this.error.toString()}`);
+    this.bot.sendPrivateMsg(this.ADMIN, `異常発生：\n${this.error.toString()}`);
   }
 
   reportGroup(target) {
     console.error(this.error);
-    this.bot.sendGroupMsg(target || this.defaultGroup, `異常発生：${this.error.toString()}`);
+    this.bot.sendGroupMsg(target || this.defaultGroup, `異常発生：\n${this.error.toString()}`);
   }
 }
 
