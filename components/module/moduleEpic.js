@@ -1,6 +1,6 @@
 const axios = require('axios');
-const parseDate = require('@utils/parseDate');
 const ErrorUtil = require('@utils/Error');
+const DateUtil = require('@utils/Dateutil');
 
 // 直接用 axios 拿的 json
 // 使用 then 解析
@@ -34,8 +34,8 @@ function moduleEpic(bot, dataIn, now) {
           ret += (
             // `[CQ:image,file=${game.keyImages[0].url}]\n`
             `名称 ${game.title}\n`
-              + `开始 ${parseDate(dates[0]).dateTimeString()}\n`
-              + `结束 ${parseDate(dates[1]).dateTimeString()}\n`
+              + `开始 ${(new DateUtil(dates[0])).format('yyyy/MM/dd HH:mm:ss')}\n`
+              + `结束 ${(new DateUtil(dates[1])).format('yyyy/MM/dd HH:mm:ss')}\n`
               + '=================\n'
           );
         }
