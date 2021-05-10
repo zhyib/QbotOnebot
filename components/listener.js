@@ -61,7 +61,6 @@ function wordsPairFunc() {
 }
 
 const wholePair = {
-  测试: ['ACK'],
   输了: ['输了', '输的透彻', '大失败'],
   我是傻逼: ['你是傻逼'],
   我懂了: ['我也懂了', '你又懂了？'],
@@ -148,11 +147,9 @@ module.exports = function linstener(botIn, dataIn) {
   sleep(3000);
   if (Math.random() < PROB) {
     return (imagePairFunc()
-          || wordsPairFunc()
           || wholePairFunc()
           || copyKeywordFunc()
-          || targetFunc()
-          || copyAllFunc());
+          || targetFunc());
   }
-  return false;
+  return (wordsPairFunc() || copyAllFunc());
 };
