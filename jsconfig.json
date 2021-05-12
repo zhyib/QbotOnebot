@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "./components",
+    "module": "commonjs",
+    "target": "es6",
+    "baseUrl": "./src",
     "paths": {
+      "@/*": ["./*"],
       "@components/*": ["./components/*"],
-      "@commands/*": ["./commands/*"],
-      "@module/*": ["./module/*"],
-      "@timeEvent/*": ["./timeEvent/*"],
-      "@utils/*": ["./utils/*"]
+      "@commands/*": ["./components/commands/*"],
+      "@module/*": ["./components/module/*"],
+      "@timeEvent/*": ["./components/timeEvent/*"],
+      "@utils/*": ["./components/utils/*"]
     }
   }
 }

@@ -1,5 +1,5 @@
 const messageQueue = require('@utils/messageQueue');
-const sleep = require('@utils/sleep.js');
+const sleep = require('@utils/sleep');
 
 const PROB = 0.3;
 

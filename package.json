@@ -27,11 +27,11 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "_moduleAliases": {
-    "@": ".",
-    "@components": "components",
-    "@commands": "components/commands",
-    "@module": "components/module",
-    "@timeEvent": "components/timeEvent",
-    "@utils": "components/utils"
+    "@": "./src",
+    "@components": "./src/components",
+    "@commands": "./src/components/commands",
+    "@module": "./src/components/module",
+    "@timeEvent": "./src/components/timeEvent",
+    "@utils": "./src/components/utils"
   }
 }
