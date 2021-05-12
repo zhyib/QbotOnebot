@@ -4,9 +4,9 @@
     "paths": {
       "@components/*": ["./components/*"],
       "@commands/*": ["./commands/*"],
-      "@module/*": ["./commands/*"],
-      "@timeEvent/*": ["./commands/*"],
-      "@utils/*": ["./utils/*"],
+      "@module/*": ["./module/*"],
+      "@timeEvent/*": ["./timeEvent/*"],
+      "@utils/*": ["./utils/*"]
     }
   }
 }
