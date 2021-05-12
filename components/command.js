@@ -7,6 +7,8 @@ const replyRoll = require('@commands/replyRoll');
 const replyHistory = require('@commands/replyHistory');
 const replyLc = require('@commands/replyLc');
 const replyDaily = require('@commands/replyDaily');
+const replyTea = require('@commands/replyTea');
+const replyNews = require('@commands/replyNews');
 
 const handlers = {
   '#help': null,
@@ -21,6 +23,8 @@ const handlers = {
   '#查看消息': replyHistory,
   '#LC': replyLc,
   '#每日': replyDaily,
+  '#tea': replyTea,
+  '#news': replyNews,
 };
 
 module.exports = function command(bot, data) {
@@ -28,7 +32,7 @@ module.exports = function command(bot, data) {
   const commandBody = data.raw_message.split(' ')[0];
   if (handlers[commandBody] !== undefined) {
     if (commandBody === '#help') {
-      bot.sendGroupMsg(data.group_id, Object.keys(handlers).toString());
+      bot.sendGroupMsg(data.group_id, Object.keys(handlers).join(', '));
     } else {
       handlers[commandBody](bot, data);
       console.log(`Command: ${commandBody}`);

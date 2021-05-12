@@ -1,3 +1,5 @@
+// deprecated
+
 const getFromUrl = require('@utils/parseHtml');
 
 module.exports = async function replyEroPic(bot, data) {
