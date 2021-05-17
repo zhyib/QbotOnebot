@@ -8,7 +8,7 @@ module.exports = class DateUtil {
       MM: String(this.date.getMonth() + 1).padStart(2, '0'),
       dd: String(this.date.getDate()).padStart(2, '0'),
       // DD: 本年的第几天
-      EEE: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][this.date.getDay()],
+      EEE: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][this.date.getDay()],
       HH: String(this.date.getHours()).padStart(2, '0'),
       hh: String(this.date.getHours() > 12 ? this.date.getHours() - 12 : this.date.getHours()).padStart(2, '0'),
       mm: String(this.date.getMinutes()).padStart(2, '0'),
