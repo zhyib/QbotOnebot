@@ -8,6 +8,7 @@ const ADMIN = 2416128865;
 const WHITE_LIST = [
   166795834, // Baijia
   263481546, // Test
+  782842016, // Jljy
 ];
 
 module.exports = function messageHandler(bot, data) {
