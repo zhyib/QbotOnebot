@@ -137,7 +137,7 @@ module.exports = function linstener(botIn, dataIn) {
   bot = botIn;
   data = dataIn;
   const rawMessage = data.raw_message;
-  if (rawMessage.includes('[CQ:reply')) {
+  if (rawMessage.includes('[CQ:')) {
     // ignore all the 'CQ:reply' status
     const arr = rawMessage.split(' ');
     messageQueue.add(arr[arr.length - 1]);
