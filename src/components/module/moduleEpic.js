@@ -32,7 +32,7 @@ function moduleEpic(bot, dataIn, now) {
         }
         if (dates.length > 0) {
           ret += (
-            // `[CQ:image,file=${game.keyImages[0].url}]\n`
+            // `[CQ:image,file=${games.keyImages[0].url}]\n`
             `名称 ${game.title}\n`
               + `开始 ${(new DateUtil(dates[0])).format('yyyy/MM/dd HH:mm:ss')}\n`
               + `结束 ${(new DateUtil(dates[1])).format('yyyy/MM/dd HH:mm:ss')}\n`

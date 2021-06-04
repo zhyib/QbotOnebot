@@ -32,6 +32,7 @@
     "@commands": "./src/components/commands",
     "@module": "./src/components/module",
     "@timeEvent": "./src/components/timeEvent",
-    "@utils": "./src/components/utils"
+    "@utils": "./src/components/utils",
+    "@games": "./src/components/games"
   }
 }

@@ -9,7 +9,8 @@
       "@commands/*": ["./components/commands/*"],
       "@module/*": ["./components/module/*"],
       "@timeEvent/*": ["./components/timeEvent/*"],
-      "@utils/*": ["./components/utils/*"]
+      "@utils/*": ["./components/utils/*"],
+      "@games/*": ["./components/games/*"]
     }
   }
 }
