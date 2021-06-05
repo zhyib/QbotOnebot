@@ -9,6 +9,7 @@ const replyLc = require('@commands/replyLc');
 const replyDaily = require('@commands/replyDaily');
 const replyTea = require('@commands/replyTea');
 const replyNews = require('@commands/replyNews');
+const replyFree = require('@commands/replyFree');
 
 const handlers = {
   '#help': null,
@@ -25,6 +26,7 @@ const handlers = {
   '#每日': replyDaily,
   '#tea': replyTea,
   '#news': replyNews,
+  '#free': replyFree,
 };
 
 module.exports = function command(bot, data) {
