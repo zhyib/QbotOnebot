@@ -1,3 +1,4 @@
-module.exports = function replyStatus(bot, data) {
+module.exports = function replyStatus(param) {
+  const { bot, data } = param;
   bot.sendGroupMsg(data.group_id, JSON.stringify(bot.getStatus()));
 };

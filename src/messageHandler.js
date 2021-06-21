@@ -1,29 +1,25 @@
 const command = require('@/command');
 const listener = require('@/listener');
 const ErrorUtil = require('@utils/Error');
+const config = require('@utils/config');
 
 let online = true;
 
-const ADMIN = 2416128865;
-const WHITE_LIST = [
-  166795834, // Baijia
-  263481546, // Test
-  782842016, // Jljy
-];
+const { admin, whileList } = config.data;
 
 module.exports = function messageHandler(bot, data) {
   // console.log(data);
-  if (WHITE_LIST.includes(data.group_id)) {
+  if (whileList.includes(data.group_id)) {
     try {
       const message = data.raw_message;
       if (message === '#下线' && online) {
         online = false;
-        bot.sendPrivateMsg(ADMIN, 'bot已下线');
+        bot.sendPrivateMsg(admin, 'bot已下线');
       } else if (message === '#上线' && !online) {
         online = true;
-        bot.sendPrivateMsg(ADMIN, 'bot已上线');
+        bot.sendPrivateMsg(admin, 'bot已上线');
       } else if (message === '#下线' || message === '#上线') {
-        bot.sendPrivateMsg(ADMIN, 'bot在线状态未变更');
+        bot.sendPrivateMsg(admin, 'bot在线状态未变更');
       }
       if (online) {
         if (message[0] === '#') {

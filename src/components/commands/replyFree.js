@@ -1,8 +1,8 @@
-const getFromUrl = require('@utils/parseHtml');
-const { sleep } = require('@utils/functions');
+const { sleep, getFromUrl } = require('@utils/functions');
 
-module.exports = async function replyFree(bot, data) {
+module.exports = async function replyFree(param) {
   try {
+    const { bot, data } = param;
     bot.sendGroupMsg(data.group_id, '正在拉取...');
     const dom = await getFromUrl('https://keylol.com/t572814-1-1');
     const h1s = dom.getElementsByTagName('h1');

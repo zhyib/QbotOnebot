@@ -1,3 +1,6 @@
-module.exports = function getTest(bot, now) {
-  bot.sendGroupMsg(166795834, `这是自动发送测试，时间 ${now.toString()}`);
+module.exports = function getTest(param) {
+  const { bot, data } = param;
+  const now = new Date();
+  const groupId = data?.group_id || 166795834;
+  bot.sendGroupMsg(groupId, `ACK - ${now.toString()}`);
 };

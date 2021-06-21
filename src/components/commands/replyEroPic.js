@@ -1,8 +1,9 @@
 // deprecated
 
-const getFromUrl = require('@utils/parseHtml');
+const getFromUrl = require('@utils/functions').getFromUrl();
 
-module.exports = async function replyEroPic(bot, data) {
+module.exports = async function replyEroPic(param) {
+  const { bot, data } = param;
   bot.sendGroupMsg(data.group_id, '正在获取URL...');
 
   // get dom from origin page

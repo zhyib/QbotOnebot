@@ -12,7 +12,8 @@ const wsSayings = [
   '我这人没啥优点，讲诚信算是其中之一',
 ];
 
-module.exports = function replyWsSayings(bot, data) {
+module.exports = function replyWsSayings(param) {
+  const { bot, data } = param;
   const message = data.raw_message;
   const args = message.split(' ');
   console.log(args);

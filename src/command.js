@@ -1,32 +1,29 @@
-const replyTest = require('@commands/replyTest');
 const replyWsSayings = require('@commands/replyWsSayings');
-const replyEpic = require('@commands/replyEpic');
-const replyEroPic = require('@commands/replyEroPic');
 const replyStatus = require('@commands/replyStatus');
 const replyRoll = require('@commands/replyRoll');
 const replyHistory = require('@commands/replyHistory');
-const replyLc = require('@commands/replyLc');
-const replyDaily = require('@commands/replyDaily');
-const replyTea = require('@commands/replyTea');
-const replyNews = require('@commands/replyNews');
 const replyFree = require('@commands/replyFree');
+const getDaily = require('@timeEvent/getDaily');
+const getEpic = require('@timeEvent/getEpic');
+const getLc = require('@timeEvent/getLc');
+const getNews = require('@timeEvent/getNews');
+const getTea = require('@timeEvent/getTea');
+const getTest = require('@timeEvent/getTest');
 
 const handlers = {
   '#help': null,
-  '#测试': replyTest,
   '#WS语录': replyWsSayings,
   '#ws语录': replyWsSayings,
-  '#epic': replyEpic,
-  // '#涩图': replyEroPic,
-  // '#色图': replyEroPic,
   '#status': replyStatus,
   '#roll': replyRoll,
   '#查看消息': replyHistory,
-  '#LC': replyLc,
-  '#每日': replyDaily,
-  '#tea': replyTea,
-  '#news': replyNews,
   '#free': replyFree,
+  '#每日': getDaily,
+  '#epic': getEpic,
+  '#LC': getLc,
+  '#news': getNews,
+  '#tea': getTea,
+  '#测试': getTest,
 };
 
 module.exports = function command(bot, data) {
@@ -36,7 +33,10 @@ module.exports = function command(bot, data) {
     if (commandBody === '#help') {
       bot.sendGroupMsg(data.group_id, Object.keys(handlers).join(', '));
     } else {
-      handlers[commandBody](bot, data);
+      handlers[commandBody]({
+        bot,
+        data,
+      });
       console.log(`Command: ${commandBody}`);
     }
   }

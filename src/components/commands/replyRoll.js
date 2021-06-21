@@ -1,4 +1,5 @@
-module.exports = function replyRoll(bot, data) {
+module.exports = function replyRoll(param) {
+  const { bot, data } = param;
   const message = data.raw_message;
   const args = message.split(' ');
   const [times, dice] = args[1].split('d');
