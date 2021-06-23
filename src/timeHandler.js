@@ -1,21 +1,22 @@
-const ErrorUtil = require('@utils/Error');
-const getTest = require('@timeEvent/getTest');
-const getNews = require('@timeEvent/getNews');
+const getDaily = require('@timeEvent/getDaily');
 const getEpic = require('@timeEvent/getEpic');
 const getLc = require('@timeEvent/getLc');
-const getDaily = require('@timeEvent/getDaily');
+const getNews = require('@timeEvent/getNews');
 const getTea = require('@timeEvent/getTea');
+const getTest = require('@timeEvent/getTest');
+const DateUtil = require('@utils/DateUtil');
+const ErrorUtil = require('@utils/Error');
 const config = require('@utils/config');
 
-const { timeConfig } = config.data;
+const { timeConfig } = config;
 
-const str2Func = {
+const funcRegister = {
+  getDaily,
   getEpic,
   getLc,
-  getTest,
   getNews,
-  getDaily,
   getTea,
+  getTest,
 };
 
 let bot = null;
@@ -32,11 +33,11 @@ function check(now) {
      * 5: GMT+0800
      * 6: (香港标准时间)
      */
-    const [day, MM, dd, yyyy, time, gmt, zone] = now.toString()
-      .split(' ');
-    const HHmm = time.slice(0, 5);
+    const dateUtil = new DateUtil(now);
+    const day = dateUtil.format('EEE');
+    const HHmm = dateUtil.format('HH:mm');
     if (timeConfig[HHmm] !== undefined) {
-      str2Func[timeConfig[HHmm]]({
+      funcRegister[timeConfig[HHmm]]({
         bot,
         now,
       });
@@ -44,7 +45,7 @@ function check(now) {
     }
     if (timeConfig[day] !== undefined) {
       if (timeConfig[day][HHmm] !== undefined) {
-        str2Func[timeConfig[day][HHmm]]({
+        funcRegister[timeConfig[day][HHmm]]({
           bot,
           now,
         });
