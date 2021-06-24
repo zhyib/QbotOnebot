@@ -3,6 +3,8 @@ const replyStatus = require('@commands/replyStatus');
 const replyRoll = require('@commands/replyRoll');
 const replyHistory = require('@commands/replyHistory');
 const replyFree = require('@commands/replyFree');
+const replyUpdate = require('@commands/replyUpdate');
+
 const getDaily = require('@timeEvent/getDaily');
 const getEpic = require('@timeEvent/getEpic');
 const getLc = require('@timeEvent/getLc');
@@ -18,6 +20,7 @@ const handlers = {
   '#roll': replyRoll,
   '#查看消息': replyHistory,
   '#free': replyFree,
+  '#update': replyUpdate,
   '#每日': getDaily,
   '#epic': getEpic,
   '#LC': getLc,
