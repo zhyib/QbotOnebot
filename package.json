@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "node main 259232161",
-    "server": "supervisor --extensions js,json -- main.js 259232161",
+    "server": "supervisor --extensions js,json --watch ./src -- main.js 259232161",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
