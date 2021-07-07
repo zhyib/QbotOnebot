@@ -12,7 +12,7 @@
       "今天周二，跑不掉了好吧，这波记忆皇帝",
       "学习不积极，脑子有问题",
       "我这人没啥优点，讲诚信算是其中之一",
-      "DOAT 狗都不玩"
+      "DOTA 狗都不玩"
     ]
   },
   "listenerConfig": {
@@ -79,7 +79,7 @@
     "xx:xx": "getTest",
     "09:00": "getNews",
     "10:00": "getDaily",
-    "15:00": "getTea"
+    "xx:x1": "getTea"
   },
   "admin": 2416128865,
   "whileList": [
