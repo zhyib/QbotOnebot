@@ -1,23 +1,28 @@
 module.exports = (function messageQueue() {
   const LIMIT = 20;
-  const data = [];
-  let copyTimes = 1;
+  const data = {};
+  const copyTimes = {};
   return {
     /**
      * Count copytimes
      * add string into array
      * @param {String} val
+     * @param {Number} groupId
      */
-    add(val) {
-      if (val === this.tail()) {
-        copyTimes++;
+    add(val, groupId) {
+      if (data[groupId] === undefined) {
+        data[groupId] = [];
+        copyTimes[groupId] = [];
+      }
+      if (val === this.tail(groupId)) {
+        copyTimes[groupId]++;
       } else {
-        copyTimes = 1;
+        copyTimes[groupId] = 1;
       }
       // resize length to LIMIT
-      data.push(val);
-      if (data.length > LIMIT) {
-        data.shift();
+      data[groupId].push(val);
+      if (data[groupId].length > LIMIT) {
+        data[groupId].shift();
       }
       // console.log(data);
       // console.log(copyTimes);
@@ -25,34 +30,43 @@ module.exports = (function messageQueue() {
 
     /**
      * Get history array
+     * @param {Number} groupId
      * @returns {Array}
      */
-    get() {
-      return data;
+    get(groupId) {
+      return data[groupId];
     },
 
     /**
      * Get copyTimes
+     * @param {Number} groupId
      * @returns {Number}
      */
-    getCopyTimes() {
-      return copyTimes;
+    getCopyTimes(groupId) {
+      return copyTimes[groupId];
     },
 
     /**
      * Get the last $num$ records
      * @param {Number} num
+     * @param {Number} groupId
      * @returns {String}
      */
-    getString(num) {
+    getString(num, groupId) {
+      const retData = data[groupId];
+      if (retData === undefined) {
+        return '';
+      }
+
+      const { length } = retData;
       let ret = '';
       if (num === undefined) {
-        for (let i = 0; i < data.length; i++) {
-          ret += `${data[i]}\n`;
+        for (let i = 0; i < length; i++) {
+          ret += `${retData[i]}\n`;
         }
       } else {
-        for (let i = data.length - num; i < data.length; i++) {
-          ret += `${data[i]}\n`;
+        for (let i = length - num; i < length; i++) {
+          ret += `${retData[i]}\n`;
         }
       }
       return ret;
@@ -60,18 +74,20 @@ module.exports = (function messageQueue() {
 
     /**
      * Return the head of data array
+     * @param {Number} groupId
      * @returns {String}
      */
-    head() {
-      return data[0];
+    head(groupId) {
+      return data[groupId][0];
     },
 
     /**
      * Return the tail of data array
+     * @param {Number} groupId
      * @returns {String}
      */
-    tail() {
-      return data[data.length - 1];
+    tail(groupId) {
+      return data[groupId][data[groupId].length - 1];
     },
   };
 }());

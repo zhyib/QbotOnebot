@@ -97,8 +97,8 @@ function copyKeywordFunc() {
 
 // 全句拷贝
 function copyAllFunc() {
-  if (messageQueue.getCopyTimes() === 2) {
-    const reply = messageQueue.tail();
+  if (messageQueue.getCopyTimes(data.group_id) === 2) {
+    const reply = messageQueue.tail(data.group_id);
     bot.sendGroupMsg(data.group_id, `${reply}`);
     console.log(`Listener | CopyAll: ${reply}`);
     return true;
@@ -113,13 +113,18 @@ module.exports = async function listener(botIn, dataIn) {
   if (rawMessage.includes('[CQ:')) {
     // ignore all the 'CQ:reply' status
     const arr = rawMessage.split(' ');
-    messageQueue.add(arr[arr.length - 1]);
+    if (dataIn.group_id !== undefined) {
+      messageQueue.add(arr[arr.length - 1], dataIn.group_id);
+    }
     return false;
   }
-  messageQueue.add(rawMessage);
+  if (dataIn.group_id !== undefined) {
+    messageQueue.add(rawMessage, dataIn.group_id);
+  }
+
   await sleep(1000);
   if (Math.random() < PROB) {
-    return (imagePairFunc() || copyKeywordFunc());
+    return (imagePairFunc() || copyKeywordFunc() || wholePairFunc() || partPairFunc() || copyAllFunc());
   }
   return (wholePairFunc() || partPairFunc() || copyAllFunc());
 };
