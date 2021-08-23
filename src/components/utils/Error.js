@@ -13,7 +13,7 @@ class ErrorUtil {
 
   reportGroup(target) {
     console.error(this.error);
-    this.bot.sendGroupMsg(target || this.defaultGroup, `異常発生：\n${this.error.toString()}`);
+    this.bot.sendGroupMsg(target, `異常発生：\n${this.error.toString()}`);
   }
 }
 

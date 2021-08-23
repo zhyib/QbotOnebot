@@ -54,6 +54,6 @@ module.exports = function getDaily(param) {
       bot.sendGroupMsg(groupId, ret);
     })
     .catch((e) => {
-      new ErrorUtil(e, bot).reportGroup();
+      throw e;
     });
 };

@@ -28,6 +28,6 @@ module.exports = async function replyLc(param) {
       bot.sendGroupMsg(groupId, ret);
     })
     .catch((e) => {
-      new ErrorUtil(e, bot).reportGroup(groupId);
+      throw e;
     });
 };

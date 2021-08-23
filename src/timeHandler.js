@@ -53,7 +53,7 @@ function check(now) {
       }
     }
   } catch (e) {
-    new ErrorUtil(e, bot).reportGroup();
+    new ErrorUtil(e, bot).reportAdmin();
   }
 }
 

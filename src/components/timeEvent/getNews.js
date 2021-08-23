@@ -57,6 +57,6 @@ module.exports = async function getNews(param) {
     await sleep(2500);
     bot.sendGroupMsg(groupId, ret4);
   } catch (e) {
-    new ErrorUtil(e, bot).reportGroup();
+    throw e;
   }
 };

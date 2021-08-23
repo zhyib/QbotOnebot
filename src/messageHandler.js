@@ -1,7 +1,7 @@
-const command = require('@/command');
-const listener = require('@/listener');
 const ErrorUtil = require('@utils/Error');
 const config = require('@utils/config');
+const command = require('@/command');
+const listener = require('@/listener');
 
 let online = true;
 
@@ -29,7 +29,11 @@ module.exports = function messageHandler(bot, data) {
         }
       }
     } catch (e) {
-      new ErrorUtil(e, bot).reportAdmin();
+      if (data.group_id === undefined) {
+        new ErrorUtil(e, bot).reportAdmin();
+      } else {
+        new ErrorUtil(e, bot).reportGroup(data.group_id);
+      }
     }
   }
 };
