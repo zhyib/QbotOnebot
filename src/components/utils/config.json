@@ -78,7 +78,7 @@
     },
     "xx:xx": "getTest",
     "09:00": "getNews",
-    "10:00": "getDaily",
+    "09:30": "getDaily",
     "xx:x1": "getTea"
   },
   "admin": 2416128865,
