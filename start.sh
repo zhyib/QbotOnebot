@@ -3,7 +3,7 @@ rm data/image/*
 echo 'Done'
 echo;
 echo 'Git pull...'
-git checkout .
+git reset -f HEAD
 git pull
 echo 'Done'
 echo;
