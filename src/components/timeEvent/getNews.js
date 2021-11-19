@@ -21,7 +21,7 @@ module.exports = async function getNews(param) {
     const texts = innerDom.getElementsByClassName('RichText ztext Post-RichText')[0].getElementsByTagName('p');
 
     // const ret0 = `[CQ:image,file=${imgUrl}]\n`;
-    let ret1 = '';
+    let ret1 = '📰';
     let ret2 = '';
     let ret3 = '';
     let ret4 = '';
