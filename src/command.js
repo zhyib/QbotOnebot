@@ -1,9 +1,10 @@
-const replyWsSayings = require('@commands/replyWsSayings');
-const replyStatus = require('@commands/replyStatus');
-const replyRoll = require('@commands/replyRoll');
-const replyHistory = require('@commands/replyHistory');
+const replyClear = require('@commands/replyClear');
 const replyFree = require('@commands/replyFree');
+const replyHistory = require('@commands/replyHistory');
+const replyRoll = require('@commands/replyRoll');
+const replyStatus = require('@commands/replyStatus');
 const replyUpdate = require('@commands/replyUpdate');
+const replyWsSayings = require('@commands/replyWsSayings');
 
 const getDaily = require('@timeEvent/getDaily');
 const getEpic = require('@timeEvent/getEpic');
@@ -27,6 +28,7 @@ const handlers = {
   '#news': getNews,
   '#tea': getTea,
   '#测试': getTest,
+  '#clear': replyClear,
 };
 
 module.exports = function command(bot, data) {
