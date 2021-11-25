@@ -2,22 +2,21 @@ const { sleep } = require('@utils/functions');
 
 module.exports = async function replyRoll({ bot, data }) {
   const texts = [
-    'I am the bone of my sword.',
-    '体は剣で出来ている',
-    'Steel is my body, and fire is my blood.',
-    '血潮は鉄で心は硝子',
-    'I have created over a thousand blades.',
-    '几たびの戦场を越えて不败',
-    'Unknown to Death.',
-    'ただの一度も败走はなく',
-    'Nor known to Life.',
-    'ただの一度も理解されない',
-    'Have withstood pain to create many weapons.',
-    '彼の者は常に独り 剣の丘で胜利に酔う',
-    'Yet, those hands will never hold anything',
-    '故に、生涯に意味はなく',
-    'So as I pray, Unlimited Blade Works!',
-    'その体は、きっと剣で出来てい',
+    '1. 倡导富强、民主、文明、和谐，倡导自由、平等、公正、法治，倡导爱国、敬业、诚信、友善，积极培育社会主义核心价值观。',
+    '2. 社会主义核心价值观基本内容：富强、民主、文明、和谐，自由、平等、公正、法治，爱国、敬业、诚信、友善。',
+    '3. 呼唤莫若实干，心动不如行动，弘扬社会主义核心价值观重在知行统一。',
+    '4. 弘扬社会主义核心价值观，为国家发展助力，为民族进步铸魂。',
+    '5. 人民有信仰，国家才有力量。',
+    '6. 爱国、敬业、诚信、友善，是每个公民都应树立的道德规范和价值追求。',
+    '7. 践行社会主义核心价值观，汇聚实现中国梦精神动力。',
+    '8. 培育和践行社会主义核心价值观，是整合社会力量、凝聚社会共识、解决和化解社会矛盾的重要途径。',
+    '9. 爱国是核心，团结是基础，和谐是根本,发展是关键,文明是标志。',
+    '10. 践行社会主义核心价值观，做文明有礼的一高人。',
+    '11. 爱国守法明礼诚信、团结友善，勤俭自强、敬业奉献。',
+    '12. 修身律己、崇德向善、礼让宽容。',
+    '13. 爱国守法、明礼诚信、团结友善、勤俭自强、敬业奉献。',
+    '14. 同心同德、同心同向、同心同行 。',
+    '15. 弘扬文明新风尚，传播社会正能量。',
   ];
   const groupId = data.group_id;
   for (let i = 0; i < texts.length; i++) {
