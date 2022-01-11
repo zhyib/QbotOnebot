@@ -1,7 +1,7 @@
 const ErrorUtil = require('@utils/Error');
 const config = require('@utils/config');
-const command = require('@/command');
-const listener = require('@/listener');
+const command = require('@src/command');
+const listener = require('@src/listener');
 
 let online = true;
 

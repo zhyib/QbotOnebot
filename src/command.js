@@ -15,33 +15,29 @@ const getTest = require('@timeEvent/getTest');
 
 const handlers = {
   '#help': null,
-  '#WS语录': replyWsSayings,
-  '#ws语录': replyWsSayings,
+  '#ws': replyWsSayings,
   '#status': replyStatus,
   '#roll': replyRoll,
-  '#查看消息': replyHistory,
+  '#history': replyHistory,
   '#free': replyFree,
   '#update': replyUpdate,
-  '#每日': getDaily,
+  '#daily': getDaily,
   '#epic': getEpic,
-  '#LC': getLc,
+  '#lc': getLc,
   '#news': getNews,
   '#tea': getTea,
-  '#测试': getTest,
+  '#test': getTest,
   '#clear': replyClear,
 };
 
 module.exports = function command(bot, data) {
   // console.log(data);
-  const commandBody = data.raw_message.split(' ')[0];
-  if (handlers[commandBody] !== undefined) {
+  const commandBody = data.raw_message.split(' ')[0].toLowerCase();
+  if (handlers[commandBody]) {
     if (commandBody === '#help') {
-      bot.sendGroupMsg(data.group_id, Object.keys(handlers).join(', '));
+      bot.sendGroupMsg(data.group_id, Object.keys(handlers).join('\n'));
     } else {
-      handlers[commandBody]({
-        bot,
-        data,
-      });
+      handlers[commandBody]({ bot, data });
       console.log(`Command: ${commandBody}`);
     }
   }

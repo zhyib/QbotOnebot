@@ -4,13 +4,27 @@
     "target": "es6",
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["./components/*"],
-      "@commands/*": ["./components/commands/*"],
-      "@module/*": ["./components/module/*"],
-      "@timeEvent/*": ["./components/timeEvent/*"],
-      "@utils/*": ["./components/utils/*"],
-      "@games/*": ["./components/games/*"]
+      "@src/*": [
+        "./*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@commands/*": [
+        "./components/commands/*"
+      ],
+      "@module/*": [
+        "./components/module/*"
+      ],
+      "@timeEvent/*": [
+        "./components/timeEvent/*"
+      ],
+      "@utils/*": [
+        "./components/utils/*"
+      ],
+      "@games/*": [
+        "./components/games/*"
+      ]
     }
   }
 }

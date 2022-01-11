@@ -1,5 +1,4 @@
 const axios = require('axios');
-const ErrorUtil = require('@utils/Error');
 
 module.exports = function getDaily(param) {
   const { bot, data, now } = param;

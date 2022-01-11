@@ -1,6 +1,10 @@
 module.exports = class DateUtil {
-  constructor(now) {
-    this.date = now || new Date();
+  /**
+   * 构造函数
+   * @param {Date} now
+   */
+  constructor(now = new Date()) {
+    this.date = now;
     this.map = {
       yyyy: String(this.date.getFullYear()),
       yy: String(this.date.getFullYear() % 100).padStart(2, '0'),
@@ -17,6 +21,11 @@ module.exports = class DateUtil {
     };
   }
 
+  /**
+   * 根据格式化字符串格式化日期
+   * @param {String} str
+   * @returns {String} - 日期字符串
+   */
   format(str) {
     let ret = str;
     const entries = Object.entries(this.map);

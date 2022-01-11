@@ -1,5 +1,4 @@
 const axios = require('axios');
-const ErrorUtil = require('@utils/Error');
 const DateUtil = require('@utils/DateUtil');
 
 // 直接用 axios 拿的 json
