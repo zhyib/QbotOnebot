@@ -14,7 +14,7 @@ const getTea = require('@timeEvent/getTea');
 const getTest = require('@timeEvent/getTest');
 
 const handlers = {
-  '#help': null,
+  '#help': 'deafult',
   '#ws': replyWsSayings,
   '#status': replyStatus,
   '#roll': replyRoll,
