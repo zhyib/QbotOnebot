@@ -126,5 +126,5 @@ module.exports = async function listener(botIn, dataIn) {
   if (Math.random() < PROB) {
     return (imagePairFunc() || copyKeywordFunc() || wholePairFunc() || partPairFunc() || copyAllFunc());
   }
-  return ( copyKeywordFunc() || wholePairFunc() || partPairFunc() || copyAllFunc());
+  return (copyKeywordFunc() || wholePairFunc() || partPairFunc() || copyAllFunc());
 };

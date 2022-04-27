@@ -1,3 +1,4 @@
+const getCheck = require('@timeEvent/getCheck');
 const getDaily = require('@timeEvent/getDaily');
 const getEpic = require('@timeEvent/getEpic');
 const getLc = require('@timeEvent/getLc');
@@ -11,6 +12,7 @@ const config = require('@utils/config');
 const { timeConfig } = config;
 
 const funcRegister = {
+  getCheck,
   getDaily,
   getEpic,
   getLc,
