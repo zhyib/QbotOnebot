@@ -81,7 +81,7 @@
     "xx:xx": "getTest",
     "08:10": "getNews",
     "08:20": "getCheck",
-    "11:40": "getCheck",
+    "12:00": "getCheck",
     "17:10": "getCheck",
     "09:00": "getDaily",
     "xx:x1": "getTea"
