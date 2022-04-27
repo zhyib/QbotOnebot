@@ -69,4 +69,5 @@ function timer() {
 module.exports = function timeHandler(botIn) {
   bot = botIn;
   timer();
+  bot.sendGroupMsg('166795834', 'Service started');
 };
